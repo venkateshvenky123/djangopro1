@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>displaying data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+    tbody:nth-of-type(add){background-color: blue;}
+    tbody:nth-of-type(even){background-color: gray}
+    thead{background-color: yellow}
+</style>
+<body>
+{% if products %}
+<h1 class="text-center">product details here</h1>
+<table class="table table-boardered text-center">
+    <thead>
+    <tr>
+        <th>product_id</th>
+        <th>product_name</th>
+        <th>product_class</th>
+        <th>product_color</th>
+        <th>product_cost</th>
+    </tr>
+    </thead>
+    {% for i in products %}
+    <tbody class="text-white">
+    <tr>
+        <td>{{ i.product_id }}</td>
+        <td>{{ i.product_name }}</td>
+        <td>{{ i.product_class }}</td>
+        <td>{{ i.product_color }}</td>
+        <td>{{ i.product_cost }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% else %}
+<h1>data is not available</h1>
+{% endif %}
+</body>
+</html>
